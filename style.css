@@ -1,0 +1,165 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    background-color: green;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.container{
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+span{
+    height: 30vh;
+    font-size: 4em;
+    margin-top: 10px;
+    margin-left: 0.5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23vw;
+}
+
+.container span:nth-child(6n+1), .container span:nth-child(6n+2), .container span:nth-child(6n+3) {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: move-right;
+}
+
+.container span:nth-child(6n+3) {
+    margin-right: 25.5vw;
+}
+
+.container span:nth-child(6n+4) {
+    margin-left: 25.5vw;
+}
+
+.container span:nth-child(6n+4), .container span:nth-child(6n+5), .container span:nth-child(6n+6) {
+    animation-name: move-left;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move-right {
+    0%{transform: translateX(0px);}
+    50%{transform: translateX(25vw);}
+    100%{transform: translateX(0px);}
+}
+
+@keyframes move-left {
+    0%{transform: translateX(0px);}
+    50%{transform: translateX(-25vw);}
+    100%{transform: translateX(0px);}
+}
+
+@media (min-width: 901px) and (max-width: 1200px){
+
+    span {
+        width: 30vw;
+    }
+    .container span:nth-child(4n+2) {
+        margin-right: 34vw;
+    }
+
+    .container span:nth-child(4n+3) {
+        position: relative;
+        margin-left: 34vw;
+        margin-right: 0;
+    }
+
+    .container span:nth-child(4n+4) {
+        margin-left: 0;
+    }
+
+    .container span:nth-child(4n+5) {
+        margin-right: 0;
+    }
+
+    .container span:nth-child(4n+6) {
+        margin-left: 0;
+    }
+
+    .container span:nth-child(4n+1), .container span:nth-child(4n+2) {
+        animation: slide-right 3s ease infinite;
+    }
+    .container span:nth-child(4n+3), .container span:nth-child(4n+4) {
+        animation: slide-left 3s ease infinite;
+    }
+
+    @keyframes slide-left {
+        0%{transform: translateX(0px);}
+        50%{transform: translateX(-33vw);}
+        100%{transform: translateX(0px);}
+    }
+
+    @keyframes slide-right {
+        0%{transform: translateX(0px);}
+        50%{transform: translateX(33vw);}
+        100%{transform: translateX(0px);}
+    }
+
+}
+
+
+@media (min-width: 501px) and (max-width: 900px){
+
+    .container span {
+        width: 45vw;
+    }
+
+    .container span:nth-child(2n+1) {
+        margin-right: 51vw;
+        animation: slip-right 3s ease infinite;
+    }
+
+    .container span:nth-child(2n+2) {
+        margin-left: 51vw;
+        animation: slip-left 3s ease infinite;
+    }
+
+    @keyframes slip-right {
+        0%{transform: translateX(0px);}
+        50%{transform: translateX(51vw);}
+        100%{transform: translateX(0px);}
+    }
+    
+    @keyframes slip-left {
+        0%{transform: translateX(0px);}
+        50%{transform: translateX(-51vw);}
+        100%{transform: translateX(0px);}
+    }
+}
+
+@media (max-width: 501px) {
+    span{
+        width: 90vw;
+        animation: none;
+    }
+
+    .container span:nth-child(2n+1){
+        animation: none;
+        margin: 0;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
+    .container span:nth-child(2n+2) {
+        animation: none;
+        margin: 0;
+    }
+
+}
